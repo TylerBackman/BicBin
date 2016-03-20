@@ -2,12 +2,13 @@
 
 # Algorithm BicBin
 bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minDensityP1=0, tries=900){
-    p <- sum(binaryMatrix) / (nrow(binaryMatrix) * ncol(binaryMatrix))
     clusters <- list()
-    while((length(clusters) < totalClusters) && (sum(binaryMatrix) > 0)){
-        bicluster <- .algorithmA_2(binaryMatrix, alpha, beta, minDensityP1, tries, p)
+    for(i in 1:totalClusters){
+        if(sum(binaryMatrix) == 0)
+            break
+        bicluster <- .algorithmA_2(binaryMatrix, alpha, beta, minDensityP1, tries)
         binaryMatrix[bicluster$rows, bicluster$cols] <- 0 # zero out this clusters region for next round
-        clusters[[i]] <- list(rows=rowCoords, cols=colCoords, score=maxCoords$score)
+        clusters[[i]] <- list(rows=bicluster$rows, cols=bicluster$cols, score=maxCoords$score)
     }
     return(clusters)
 }
@@ -16,12 +17,14 @@ bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minD
 .algorithmA_2 <- function(binaryMatrix, alpha, beta, minDensityP1, tries, p){
     density <- -1 
     rowCoords <- 1:nrow(binaryMatrix)
-    colCoords <- 1:nrow(binaryMatrix)
+    colCoords <- 1:ncol(binaryMatrix)
     while(density < minDensityP1){
-        resultCoords <- .algorithmA_1(binaryMatrix[rowCoords, colCoords], alpha, beta, tries, p)
+        if(density < 0)
+            density <- sum((binaryMatrix[rowCoords,colCoords])/(length(rowCoords) * length(colCoords))) 
+        resultCoords <- .algorithmA_1(binaryMatrix[rowCoords, colCoords], alpha, beta, tries, density)
         rowCoords <- rowCoords[resultCoords$rows]
-        colCoords <- rowCoords[resultCoords$cols]
-        density <- sum((binaryMatrix[rowCoords,colCoords])/(length(rowCoords) * length(colCoords)))
+        colCoords <- colCoords[resultCoords$cols]
+        density <- sum((binaryMatrix[rowCoords,colCoords])/(length(rowCoords) * length(colCoords))) 
     }
     return(list(rows=rowCoords, cols=colCoords))
 }

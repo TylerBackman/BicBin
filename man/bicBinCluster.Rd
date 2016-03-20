@@ -36,7 +36,7 @@ The number of random iterations to try. Users should try multiple values to test
 }
 \value{
 Returns a list of the bicluster coordinates and scores. The elements
-rows and cols contain a binary representation of which rows and columns are included in the bicluster.
+rows and cols contain the row and column numbers for the bicluster, as well as the score for that bicluster.
 For example, you can get the coordinates for the first bicluster as follows: bicluster[[1]]$rows, bicluster[[1]]$cols
 }
 \references{
@@ -57,5 +57,6 @@ mat <- matrix(sample(c(rep.int(0, 100), 1), 800*250, replace=TRUE), 800, 250)
 bicluster <- bicBinCluster(binaryMatrix=mat, totalClusters=1,
 	alpha=0.5, beta=0.8, tries=tries, minDensityP1=0)
 firstBicluster <- mat[bicluster[[1]]$rows, bicluster[[1]]$cols]
+firstBiclusterScore <- bicluster[[1]]$score
 }
 \keyword{ utilities }
