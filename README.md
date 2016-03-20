@@ -1,7 +1,7 @@
 # BicBin
 Biclustering Sparse Binary Data by Tyler Backman
 
-This package is based on the BicBin algorithm published by 
+This R package is based on the BicBin algorithm published by 
 Miranda van Uitert, Wouter Meuleman, and Lodewyk Wessels.
 
 If you use this software please cite the following paper:
