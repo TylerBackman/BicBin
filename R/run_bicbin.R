@@ -26,7 +26,7 @@ bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minD
         colCoords <- colCoords[resultCoords$cols]
         density <- sum((binaryMatrix[rowCoords,colCoords])/(length(rowCoords) * length(colCoords))) 
     }
-    return(list(rows=rowCoords, cols=colCoords))
+    return(list(rows=rowCoords, cols=colCoords, score=resultCoords$score))
 }
 
 # Algorithm A_1 in parallel
