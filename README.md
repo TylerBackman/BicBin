@@ -3,6 +3,8 @@ Biclustering Sparse Binary Data by Tyler Backman
 
 This R package is based on the BicBin algorithm published by 
 Miranda van Uitert, Wouter Meuleman, and Lodewyk Wessels.
+It makes use of the R packages foreach, doMC, and doRNG
+to find biclusters in parallel across a large number of CPU cores.
 
 If you use this software please cite the following paper:
 Biclustering sparse binary genomic data.
