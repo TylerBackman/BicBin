@@ -12,6 +12,6 @@ van Uitert, Meuleman W, Wessels L.
 J Comput Biol. 2008 Dec;15(10):1329-45. doi: 10.1089/cmb.2008.0066.
 http://www.ncbi.nlm.nih.gov/pubmed/19040367
 
-As the origional code was published without a license, I am assuming it is in the public
+As the original code was published without a license, I am assuming it is in the public
 domain. If this is not the case, please contact me immediately and I will take this
 software offline.
