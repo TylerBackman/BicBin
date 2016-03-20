@@ -14,7 +14,7 @@ bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minD
 }
 
 # Algorithm A_2 find clusters above set density
-.algorithmA_2 <- function(binaryMatrix, alpha, beta, minDensityP1, tries, p){
+.algorithmA_2 <- function(binaryMatrix, alpha, beta, minDensityP1, tries){
     density <- -1 
     rowCoords <- 1:nrow(binaryMatrix)
     colCoords <- 1:ncol(binaryMatrix)
