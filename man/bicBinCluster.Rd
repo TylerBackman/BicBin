@@ -37,7 +37,8 @@ The number of random iterations to try. Users should try multiple values to test
 \value{
 Returns a list of the bicluster coordinates and scores. The elements
 rows and cols contain the row and column numbers for the bicluster, as well as the score for that bicluster.
-For example, you can get the coordinates for the first bicluster as follows: bicluster[[1]]$rows, bicluster[[1]]$cols
+See the below example for syntax on accessing rows, columns, and scores.
+Note that the scores may not mean much for comparing across biclusters, as they are calculated with a local probability p for the portion of the sub-matrix being considered at the time. Implementing the code in this way was necessary, or else the minDensityP1 option would not be possible, as one wouldn't get denser clusters on each re-evaluation.
 }
 \references{
 Biclustering sparse binary genomic data. van Uitert, Meuleman W, Wessels L. J Comput Biol. 2008 Dec;15(10):1329-45. doi: 10.1089/cmb.2008.0066.
