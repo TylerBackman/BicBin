@@ -20,6 +20,7 @@ bicBinCluster <- function(binaryMatrix, totalClusters, cores, alpha=0.5, beta=0.
 		max <- allResults[[which.max(sapply(allResults, function(x) x$score))]]
 		subMatrix <- binaryMatrix[max$x == 1, max$y == 1]
 		density <- sum(subMatrix) / (nrow(subMatrix) * ncol(subMatrix))
+        print(paste("density:", density))
 	}
         binaryMatrix[max$x == 1, max$y == 1] <- 0 # zero out this clusters region for next round
         clusters[[i]] <- list(rows=row.names(binaryMatrix)[max$x == 1], 
