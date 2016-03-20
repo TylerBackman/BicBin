@@ -48,14 +48,14 @@ Tyler William H Backman
 \examples{
 cores <- 1 # set cpu cores
 gc() # clear unused memory
-registerDoMC(cores=cores) # register parallel backend
 set.seed(123) # get same clusters each time
+registerDoMC(cores=cores) # register parallel backend
 tries <- cores*10 # make tries an even multiple of cores
 row.names(mat) <- as.character(1:nrow(mat))
 colnames(mat) <- as.character(1:ncol(mat))
 mat <- matrix(sample(c(rep.int(0, 100), 1), 800*250, replace=TRUE), 800, 250)
 bicluster <- bicBinCluster(binaryMatrix=mat, totalClusters=1,
 	alpha=0.5, beta=0.8, tries=tries, minDensityP1=0)
-}
 firstBicluster <- mat[bicluster[[1]]$rows, bicluster[[1]]$cols]
+}
 \keyword{ utilities }
