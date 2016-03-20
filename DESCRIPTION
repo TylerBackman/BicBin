@@ -3,6 +3,6 @@ Title: Biclustering Sparse Binary Data In Parallel
 Version: 0.0.1
 Authors@R: person("Tyler", "Backman", email = "tbackman@ucr.edu", role = c("aut", "cre"))
 Description: Biclusters sparse binary data in parallel across many cores based on BicBin by Miranda van Uitert, Wouter Meuleman, and Lodewyk Wessels. 
-Depends: R (>= 3.2.3), foreach, doMC, doRNG
+Depends: R (>= 3.2.0), foreach, doMC, doRNG
 License: file LICENSE 
 LazyData: true
