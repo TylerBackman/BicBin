@@ -1,4 +1,4 @@
-# (C) 2016 Tyler William H Backman
+# Written by Tyler William H Backman in 2016
 
 # perform bicbin clustering in parallel
 bicBinCluster <- function(binaryMatrix, totalClusters, cores, alpha=0.5, beta=0.5, minDensityP1=0, tries=900){
@@ -6,12 +6,12 @@ bicBinCluster <- function(binaryMatrix, totalClusters, cores, alpha=0.5, beta=0.
     N <- ncol(binaryMatrix)
     p <- sum(binaryMatrix) / (M*N)
     clusters <- list()
-    for(i in 1:totalClusters){
+    for(i in 1:totalClusters){ # this loop implements Algorithm BicBin
 	density <- 0
-	while(density < minDensityP1){
+	while(density < minDensityP1){ # this loop implements Algorithm A_2
         	allResults <- foreach(thisTry = 1:tries) %dorng% {
-             	 res1 <- .BicBin(binaryMatrix, alpha, beta, p, proc_genes=TRUE) # by columns
-             	 res2 <- .BicBin(binaryMatrix, alpha, beta, p, proc_genes=FALSE) # by rows
+             	 res1 <- .BicBin(binaryMatrix, alpha, beta, p, proc_genes=TRUE) # Algorithm A_1 by columns
+             	 res2 <- .BicBin(binaryMatrix, alpha, beta, p, proc_genes=FALSE) # Algorithm A_1 by rows
             	  if(res1$score > res2$score)
             	    return(res1)
             	  else
