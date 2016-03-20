@@ -1,7 +1,7 @@
 # Written by Tyler William H Backman in 2016
 
 # perform bicbin clustering in parallel
-bicBinCluster <- function(binaryMatrix, totalClusters, cores, alpha=0.5, beta=0.5, minDensityP1=0, tries=900){
+bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minDensityP1=0, tries=900){
     M <- nrow(binaryMatrix)
     N <- ncol(binaryMatrix)
     p <- sum(binaryMatrix) / (M*N)
