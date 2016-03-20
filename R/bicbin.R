@@ -38,7 +38,7 @@
             m <- sum(x)
             
             s <- as.matrix(t(x) %*% G) # Colsums over selected TFs (i.e., x == 1)
-            ss <- sort(s, decr=TRUE, index.return=TRUE);
+            ss <- sort(s, decreasing=TRUE, index.return=TRUE);
             
             C <- .score(k <- cumsum(ss$x), m, n <- 1:N, p, alpha, beta)
             

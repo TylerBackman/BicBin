@@ -11,7 +11,7 @@ bicBinCluster(binaryMatrix, totalClusters, alpha = 0.5, beta = 0.5, minDensityP1
 }
 \arguments{
   \item{binaryMatrix}{
-This is a binary matrix (0s and 1s) with unique row and column names.
+This is a binary matrix (0s and 1s).
 }
   \item{totalClusters}{
 The desired number of clusters to find.
@@ -51,8 +51,6 @@ gc() # clear unused memory
 set.seed(123) # get same clusters each time
 registerDoMC(cores=cores) # register parallel backend
 tries <- cores*10 # make tries an even multiple of cores
-row.names(mat) <- as.character(1:nrow(mat))
-colnames(mat) <- as.character(1:ncol(mat))
 mat <- matrix(sample(c(rep.int(0, 100), 1), 800*250, replace=TRUE), 800, 250)
 bicluster <- bicBinCluster(binaryMatrix=mat, totalClusters=1,
 	alpha=0.5, beta=0.8, tries=tries, minDensityP1=0)

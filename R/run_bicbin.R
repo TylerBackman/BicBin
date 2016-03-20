@@ -8,7 +8,7 @@ bicBinCluster <- function(binaryMatrix, totalClusters, alpha=0.5, beta=0.5, minD
             break
         bicluster <- .algorithmA_2(binaryMatrix, alpha, beta, minDensityP1, tries)
         binaryMatrix[bicluster$rows, bicluster$cols] <- 0 # zero out this clusters region for next round
-        clusters[[i]] <- list(rows=bicluster$rows, cols=bicluster$cols, score=maxCoords$score)
+        clusters[[i]] <- list(rows=bicluster$rows, cols=bicluster$cols, score=bicluster$score)
     }
     return(clusters)
 }
