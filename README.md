@@ -2,8 +2,10 @@
 Biclustering Sparse Binary Data by Tyler Backman
 
 Installation:
-> library(devtools)
-> install_github("TylerBackman/BicBin")
+```R
+library(devtools)
+install_github("TylerBackman/BicBin")
+```
 
 This R package is based on the BicBin algorithm published by 
 Miranda van Uitert, Wouter Meuleman, and Lodewyk Wessels.
